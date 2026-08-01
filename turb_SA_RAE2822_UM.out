@@ -1,0 +1,498 @@
+
+-------------------------------------------------------------------------
+|    ___ _   _ ___                                                      |
+|   / __| | | |_  )   Release 8.5.0 "Harrier"                           |
+|   \__ \ |_| |/ /                                                      |
+|   |___/\___//___|   Suite (Computational Fluid Dynamics Code)         |
+|                                                                       |
+-------------------------------------------------------------------------
+| SU2 Project Website: https://su2code.github.io                        |
+|                                                                       |
+| The SU2 Project is maintained by the SU2 Foundation                   |
+| (http://su2foundation.org)                                            |
+-------------------------------------------------------------------------
+| Copyright 2012-2026, SU2 Contributors                                 |
+|                                                                       |
+| SU2 is free software; you can redistribute it and/or                  |
+| modify it under the terms of the GNU Lesser General Public            |
+| License as published by the Free Software Foundation; either          |
+| version 2.1 of the License, or (at your option) any later version.    |
+|                                                                       |
+| SU2 is distributed in the hope that it will be useful,                |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of        |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
+| Lesser General Public License for more details.                       |
+|                                                                       |
+| You should have received a copy of the GNU Lesser General Public      |
+| License along with SU2. If not, see <http://www.gnu.org/licenses/>.   |
+-------------------------------------------------------------------------
+
+Parsing config file for zone 0
+
+----------------- Physical Case Definition ( Zone 0 ) -------------------
+Compressible RANS equations.
+Turbulence model: Spalart-Allmaras-noft2
+Hybrid RANS/LES: No Hybrid RANS/LES
+Mach number: 0.729.
+Angle of attack (AoA): 2.31 deg, and angle of sideslip (AoS): 0 deg.
+Reynolds number: 6.5e+06. Reference length 1.
+No restart solution, use the values at infinity (freestream).
+Dimensional simulation.
+The reference area is 1 m^2.
+The semi-span will be computed using the max y(3D) value.
+The reference length is 1 m.
+Reference origin for moment evaluation is (0.25, 0, 0).
+Surface(s) where the force coefficients are evaluated: AIRFOIL.
+
+Surface(s) plotted in the output file: AIRFOIL.
+Surface(s) affected by the design variables: AIRFOIL.
+Input mesh file name: rae2822_cmesh_turb_v1.su2
+
+--------------- Space Numerical Integration ( Zone 0 ) ------------------
+Jameson-Schmidt-Turkel scheme (2nd order in space) for the flow inviscid terms.
+JST viscous coefficients (2nd & 4th): 0.5, 0.02.
+The method includes a grid stretching correction (p = 0.3).
+Scalar upwind solver for the turbulence model.
+First order integration in space.
+Average of gradients with correction (viscous flow terms).
+Average of gradients with correction (viscous turbulence terms).
+Gradient for viscous and source terms: inverse-distance weighted Least-Squares.
+
+--------------- Time Numerical Integration  ( Zone 0 ) ------------------
+Local time stepping (steady state simulation).
+Euler implicit method for the flow equations.
+FGMRES is used for solving the linear system.
+Using a Jacobi preconditioning.
+Convergence criteria of the linear solver: 1e-06.
+Max number of linear iterations: 20.
+W Multigrid Cycle, with 3 multigrid levels.
+Damping factor for the residual restriction: 0.5.
+Damping factor for the correction prolongation: 0.5.
+No CFL adaptation.
++--------------------------------------------------------+
+|  MG Level| Presmooth|PostSmooth|CorrectSmo| CFL Scaling|
++--------------------------------------------------------+
+|         0|         1|         0|         1|           -|
+|         1|         4|         4|         1|      0.2500|
+|         2|         4|         4|         1|      0.2500|
+|         3|         4|         0|         0|      0.2500|
++--------------------------------------------------------+
+Courant-Friedrichs-Lewy number:       10
+Euler implicit time integration for the turbulence model.
+
+------------------ Convergence Criteria  ( Zone 0 ) ---------------------
+Maximum number of solver subiterations: 100.
+Begin convergence monitoring at iteration 10.
+Residual minimum value: 1e-8.
+Cauchy series min. value: 1e-06.
+Number of Cauchy elements: 100.
+Begin windowed time average at iteration 0.
+
+-------------------- Output Information ( Zone 0 ) ----------------------
+File writing frequency: 
++------------------------------------+
+|                     File| Frequency|
++------------------------------------+
+|                  RESTART|       250|
+|                 PARAVIEW|       250|
+|         SURFACE_PARAVIEW|       250|
++------------------------------------+
+Writing the convergence history file every 1 inner iterations.
+Writing the screen convergence history every 1 inner iterations.
+The tabular file format is CSV (.csv).
+Convergence history file name: history.
+Forces breakdown file name: forces_breakdown.dat.
+Surface file name: surface_flow.
+Volume file name: flow.
+Restart file name: restart_flow.
+
+------------- Config File Boundary Information ( Zone 0 ) ---------------
++-----------------------------------------------------------------------+
+|                        Marker Type|                        Marker Name|
++-----------------------------------------------------------------------+
+|                          Far-field|                           FARFIELD|
++-----------------------------------------------------------------------+
+|                     Heat flux wall|                            AIRFOIL|
++-----------------------------------------------------------------------+
+
+-------------------- Output Preprocessing ( Zone 0 ) --------------------
+
+WARNING: SURFACE_PRESSURE_DROP can only be computed for at least 2 surfaces (outlet, inlet, ...)
+
+Screen output fields: INNER_ITER, RMS_DENSITY, RMS_NU_TILDE, LIFT, DRAG, LINSOL_RESIDUAL
+History output group(s): ITER, RMS_RES
+Convergence field(s): RMS_DENSITY
+Warning: No (valid) fields chosen for time convergence monitoring. Time convergence monitoring inactive.
+Volume output fields: COORDINATES, SOLUTION, PRIMITIVE
+
+------------------- Geometry Preprocessing ( Zone 0 ) -------------------
+Two dimensional problem.
+24960 grid points.
+24576 volume elements.
+2 surface markers.
+256 boundary elements in index 0 (Marker = AIRFOIL).
+512 boundary elements in index 1 (Marker = FARFIELD).
+24576 quadrilaterals.
+Setting point connectivity.
+Renumbering points (Reverse Cuthill McKee Ordering).
+Recomputing point connectivity.
+Setting element connectivity.
+Checking the numerical grid orientation.
+There has been a re-orientation of 24576 QUADRILATERAL volume elements.
+There has been a re-orientation of 768 LINE surface elements.
+Identifying edges and vertices.
+Setting the control volume structure.
+Area of the computational grid: 1532.56.
+Searching for the closest normal neighbors to the surfaces.
+Storing a mapping from global to local point index.
+Compute the surface curvature.
+Max K: 1045.57. Mean K: 7.03411. Standard deviation K: 48.8216.
+Computing mesh quality statistics for the dual control volumes.
++--------------------------------------------------------------+
+|           Mesh Quality Metric|        Minimum|        Maximum|
++--------------------------------------------------------------+
+|    Orthogonality Angle (deg.)|        78.1342|             90|
+|     CV Face Area Aspect Ratio|        1.00025|         172022|
+|           CV Sub-Volume Ratio|              1|        1.78796|
++--------------------------------------------------------------+
+Setting the multigrid structure. NMG=3
++-------------------------------------------+
+|  MG Level|       CVs|Aggl. Rate|       CFL|
++-------------------------------------------+
+|         0|     24960|    1/1.00|        10|
+|         1|      6528|    1/3.82|   6.66667|
+|         2|      1791|    1/3.64|   4.44444|
+|         3|       539|    1/3.32|   2.96296|
++-------------------------------------------+
+Finding max control volume width.
+Wetted area = 2.02459 m.
+Area projection in the x-plane = 0.123299 m, y-plane = 0.995916 m.
+Max. coordinate in the x-direction = 1 m, y-direction = 0.0643342 m.
+Min. coordinate in the x-direction = 0 m, y-direction = -0.0577811 m.
+Computing wall distances.
+
+-------------------- Solver Preprocessing ( Zone 0 ) --------------------
+Viscous flow: Computing pressure using the ideal gas law
+based on the free-stream temperature and a density computed
+from the Reynolds number.
+Force coefficients computed using free-stream values.
+
+-- Models:
++------------------------------------------------------------------------------+
+|          Viscosity Model|        Conductivity Model|              Fluid Model|
++------------------------------------------------------------------------------+
+|               SUTHERLAND|          CONSTANT_PRANDTL|             STANDARD_AIR|
++------------------------------------------------------------------------------+
+-- Fluid properties:
++------------------------------------------------------------------------------+
+|                  Name|    Dim. value|    Ref. value|      Unit|Non-dim. value|
++------------------------------------------------------------------------------+
+|        Ref. Viscosity|     1.716e-05|             1|   N.s/m^2|     1.716e-05|
+|      Sutherland Temp.|        273.15|             1|         K|        273.15|
+|     Sutherland Const.|         110.4|             1|         K|         110.4|
++------------------------------------------------------------------------------+
+|        Prandtl (Lam.)|             -|             -|         -|          0.72|
+|       Prandtl (Turb.)|             -|             -|         -|           0.9|
++------------------------------------------------------------------------------+
+|          Gas Constant|       287.058|             1|  N.m/kg.K|       287.058|
+|      Spec. Heat Ratio|             -|             -|         -|           1.4|
++------------------------------------------------------------------------------+
+-- Initial and free-stream conditions:
++------------------------------------------------------------------------------+
+|                  Name|    Dim. value|    Ref. value|      Unit|Non-dim. value|
++------------------------------------------------------------------------------+
+|       Static Pressure|       38779.2|             1|        Pa|       38779.2|
+|               Density|      0.468824|             1|    kg/m^3|      0.468824|
+|           Temperature|        288.15|             1|         K|        288.15|
+|          Total Energy|        237560|             1|   m^2/s^2|        237560|
+|            Velocity-X|       247.875|             1|       m/s|       247.875|
+|            Velocity-Y|       9.99902|             1|       m/s|       9.99902|
+|    Velocity Magnitude|       248.077|             1|       m/s|       248.077|
++------------------------------------------------------------------------------+
+|             Viscosity|    1.7893e-05|             1|   N.s/m^2|    1.7893e-05|
+|          Conductivity|             -|             1|   W/m^2.K|             -|
+|     Turb. Kin. Energy|       230.782|             1|   m^2/s^2|       230.782|
+|     Spec. Dissipation|        604687|             1|       1/s|        604687|
++------------------------------------------------------------------------------+
+|           Mach Number|             -|             -|         -|         0.729|
+|       Reynolds Number|             -|             -|         -|       6.5e+06|
++------------------------------------------------------------------------------+
+Initialize Jacobian structure (Navier-Stokes). MG level: 0.
+Initialize Jacobian structure (SA model).
+Initialize Jacobian structure (Navier-Stokes). MG level: 1.
+Initialize Jacobian structure (Navier-Stokes). MG level: 2.
+Initialize Jacobian structure (Navier-Stokes). MG level: 3.
+
+------------------- Numerics Preprocessing ( Zone 0 ) -------------------
+
+----------------- Integration Preprocessing ( Zone 0 ) ------------------
+
+------------------- Iteration Preprocessing ( Zone 0 ) ------------------
+Euler/Navier-Stokes/RANS fluid iteration.
+
+------------------------------ Begin Solver -----------------------------
+
+Simulation Run using the Single-zone Driver
++-----------------------------------------------------------------------------+
+|  Inner_Iter|    rms[Rho]|     rms[nu]|          CL|          CD|   LinSolRes|
++-----------------------------------------------------------------------------+
+|           0|   -1.847950|   -5.027378|    0.217434|    0.206849|   -1.865181|
+|           1|   -2.372295|   -5.611617|    0.240160|    0.248175|   -1.552700|
+|           2|   -2.479803|   -5.762809|    0.219043|    0.248425|   -1.564580|
+|           3|   -2.615360|   -5.871766|    0.205706|    0.232232|   -1.536788|
+|           4|   -2.684759|   -6.005091|    0.201499|    0.217770|   -1.604901|
+|           5|   -2.672223|   -6.030937|    0.201077|    0.205962|   -1.767984|
+|           6|   -2.652740|   -6.021640|    0.201885|    0.194728|   -1.898626|
+|           7|   -2.636283|   -6.005174|    0.203552|    0.183691|   -1.972346|
+|           8|   -2.619282|   -5.977450|    0.206512|    0.172794|   -2.037687|
+|           9|   -2.601301|   -5.943746|    0.211343|    0.161994|   -2.088608|
+|          10|   -2.582846|   -5.911178|    0.217849|    0.151881|   -2.114253|
+|          11|   -2.566041|   -5.880028|    0.225795|    0.142564|   -2.137790|
+|          12|   -2.553258|   -5.848692|    0.235372|    0.133718|   -2.161803|
+|          13|   -2.545471|   -5.817035|    0.246092|    0.125364|   -2.169290|
+|          14|   -2.541916|   -5.785887|    0.257578|    0.117409|   -2.143146|
+|          15|   -2.540277|   -5.755586|    0.270004|    0.109594|   -2.104755|
+|          16|   -2.538582|   -5.726938|    0.283459|    0.101833|   -2.082112|
+|          17|   -2.536364|   -5.701262|    0.297195|    0.094454|   -2.089443|
+|          18|   -2.533944|   -5.678780|    0.311976|    0.087115|   -2.123843|
+|          19|   -2.531800|   -5.659003|    0.327695|    0.079880|   -2.162674|
+|          20|   -2.530197|   -5.640384|    0.344216|    0.072788|   -2.178959|
+|          21|   -2.528971|   -5.621761|    0.361379|    0.065863|   -2.187574|
+|          22|   -2.527560|   -5.602760|    0.379623|    0.058945|   -2.193284|
+|          23|   -2.525567|   -5.584455|    0.398092|    0.052321|   -2.194195|
+|          24|   -2.523097|   -5.567666|    0.416529|    0.046100|   -2.190371|
+|          25|   -2.520472|   -5.552425|    0.434919|    0.040359|   -2.179312|
+|          26|   -2.517934|   -5.538033|    0.453654|    0.035125|   -2.162384|
+|          27|   -2.515736|   -5.523912|    0.472977|    0.030540|   -2.142927|
+|          28|   -2.514039|   -5.510316|    0.492303|    0.026862|   -2.123429|
+|          29|   -2.512982|   -5.497652|    0.512482|    0.024164|   -2.105065|
+|          30|   -2.513183|   -5.485844|    0.532638|    0.022716|   -2.081617|
+|          31|   -2.514830|   -5.476003|    0.552003|    0.022631|   -2.065205|
+|          32|   -2.518296|   -5.469885|    0.569661|    0.023791|   -2.054571|
+|          33|   -2.523623|   -5.467794|    0.585744|    0.025929|   -2.050192|
+|          34|   -2.529756|   -5.469753|    0.600202|    0.028690|   -2.042725|
+|          35|   -2.536114|   -5.475357|    0.612908|    0.031670|   -2.039491|
+|          36|   -2.542971|   -5.483734|    0.623445|    0.034361|   -2.039069|
+|          37|   -2.551063|   -5.493911|    0.632409|    0.036534|   -2.026202|
+|          38|   -2.560324|   -5.504839|    0.639964|    0.037772|   -2.017934|
+|          39|   -2.569563|   -5.516509|    0.646508|    0.037814|   -2.020325|
+|          40|   -2.577201|   -5.527893|    0.652959|    0.036649|   -2.002668|
+|          41|   -2.582889|   -5.538001|    0.660062|    0.034421|   -1.985760|
+|          42|   -2.588108|   -5.546526|    0.668338|    0.031432|   -1.982798|
+|          43|   -2.595115|   -5.552801|    0.677909|    0.028072|   -1.995539|
+|          44|   -2.605345|   -5.557098|    0.688477|    0.024733|   -2.023144|
+|          45|   -2.619056|   -5.559772|    0.699523|    0.021755|   -2.021289|
+|          46|   -2.635420|   -5.562134|    0.710419|    0.019386|   -1.995521|
+|          47|   -2.653100|   -5.564709|    0.720582|    0.017759|   -1.981312|
+|          48|   -2.670906|   -5.567817|    0.729557|    0.016899|   -1.981540|
+|          49|   -2.688287|   -5.571104|    0.737028|    0.016733|   -1.998420|
+|          50|   -2.705402|   -5.574368|    0.742847|    0.017124|   -2.029057|
+|          51|   -2.722872|   -5.577768|    0.747022|    0.017898|   -2.048530|
+|          52|   -2.741187|   -5.581111|    0.749668|    0.018858|   -2.033804|
+|          53|   -2.760333|   -5.584377|    0.750997|    0.019814|   -2.012034|
+|          54|   -2.779878|   -5.587482|    0.751301|    0.020599|   -1.994624|
+|          55|   -2.799203|   -5.589451|    0.750930|    0.021085|   -1.984469|
+|          56|   -2.817705|   -5.591372|    0.750252|    0.021202|   -1.983619|
+|          57|   -2.834911|   -5.591906|    0.749624|    0.020941|   -1.990293|
+|          58|   -2.850702|   -5.591453|    0.749353|    0.020351|   -2.003428|
+|          59|   -2.865490|   -5.589633|    0.749641|    0.019527|   -2.021613|
+|          60|   -2.880111|   -5.587201|    0.750598|    0.018596|   -2.042765|
+|          61|   -2.895615|   -5.584537|    0.752216|    0.017688|   -2.061809|
+|          62|   -2.912920|   -5.581924|    0.754404|    0.016914|   -2.070750|
+|          63|   -2.932468|   -5.579426|    0.757024|    0.016354|   -2.068781|
+|          64|   -2.954135|   -5.577378|    0.759905|    0.016044|   -2.064362|
+|          65|   -2.977346|   -5.575381|    0.762892|    0.015982|   -2.058363|
+|          66|   -3.001221|   -5.573018|    0.765884|    0.016136|   -2.052061|
+|          67|   -3.024848|   -5.570237|    0.768773|    0.016450|   -2.046224|
+|          68|   -3.047507|   -5.566890|    0.771498|    0.016858|   -2.039748|
+|          69|   -3.068711|   -5.562875|    0.774009|    0.017291|   -2.031442|
+|          70|   -3.088283|   -5.557957|    0.776262|    0.017679|   -2.021978|
+|          71|   -3.106292|   -5.552119|    0.778253|    0.017971|   -2.012787|
+|          72|   -3.122804|   -5.545449|    0.780034|    0.018139|   -2.004953|
+|          73|   -3.137852|   -5.537986|    0.781656|    0.018165|   -1.999242|
+|          74|   -3.151448|   -5.529909|    0.783175|    0.018052|   -1.995904|
+|          75|   -3.163689|   -5.521151|    0.784669|    0.017817|   -1.995004|
+|          76|   -3.174645|   -5.511776|    0.786175|    0.017489|   -1.997349|
+|          77|   -3.184726|   -5.501801|    0.787704|    0.017112|   -2.003313|
+|          78|   -3.194514|   -5.491404|    0.789153|    0.016752|   -2.012392|
+|          79|   -3.204788|   -5.480440|    0.790662|    0.016417|   -2.028426|
+|          80|   -3.214838|   -5.468894|    0.792123|    0.016142|   -2.037209|
+|          81|   -3.225282|   -5.456653|    0.793580|    0.015923|   -2.045492|
+|          82|   -3.235365|   -5.443626|    0.794983|    0.015765|   -2.051133|
+|          83|   -3.245288|   -5.429816|    0.796304|    0.015666|   -2.059273|
+|          84|   -3.255005|   -5.415207|    0.797515|    0.015618|   -2.071564|
+|          85|   -3.264601|   -5.399907|    0.798569|    0.015607|   -2.088480|
+|          86|   -3.275074|   -5.383884|    0.799480|    0.015618|   -2.114553|
+|          87|   -3.286237|   -5.367163|    0.800254|    0.015640|   -2.135553|
+|          88|   -3.298489|   -5.349801|    0.800887|    0.015659|   -2.154908|
+|          89|   -3.312056|   -5.331703|    0.801387|    0.015665|   -2.173821|
+|          90|   -3.327389|   -5.313021|    0.801776|    0.015652|   -2.184105|
+|          91|   -3.345787|   -5.293797|    0.802065|    0.015617|   -2.198244|
+|          92|   -3.366499|   -5.274037|    0.802283|    0.015561|   -2.210476|
+|          93|   -3.389035|   -5.253734|    0.802460|    0.015487|   -2.219173|
+|          94|   -3.412711|   -5.233045|    0.802619|    0.015403|   -2.220043|
+|          95|   -3.437362|   -5.211827|    0.802797|    0.015306|   -2.216279|
+|          96|   -3.461181|   -5.190303|    0.802984|    0.015207|   -2.193858|
+|          97|   -3.484855|   -5.168486|    0.803188|    0.015107|   -2.178971|
+|          98|   -3.507630|   -5.146472|    0.803414|    0.015016|   -2.167374|
+|          99|   -3.529890|   -5.124304|    0.803657|    0.014937|   -2.158342|
+
+----------------------------- Solver Exit -------------------------------
+
+Maximum number of iterations reached (ITER = 100) before convergence.
++-----------------------------------------------------------------------+
+|      Convergence Field     |     Value    |   Criterion  |  Converged |
++-----------------------------------------------------------------------+
+|                    rms[Rho]|      -3.52989|          < -8|          No|
++-----------------------------------------------------------------------+
+-------------------------------------------------------------------------
++-----------------------------------------------------------------------+
+|        File Writing Summary       |              Filename             |
++-----------------------------------------------------------------------+
+|SU2 binary restart                 |restart_flow.dat                   |
+|Paraview                           |flow.vtu                           |
+|Paraview surface                   |surface_flow.vtu                   |
++-----------------------------------------------------------------------+
+
+--------------------------- Finalizing Solver ---------------------------
+Deleted CNumerics container.
+Deleted CIntegration container.
+Deleted CSolver container.
+Deleted CIteration container.
+Deleted CInterface container.
+Deleted CGeometry container.
+Deleted CFreeFormDefBox class.
+Deleted CSurfaceMovement class.
+Deleted CVolumetricMovement class.
+Deleted CConfig container.
+Deleted nInst container.
+Deleted COutput class.
+-------------------------------------------------------------------------
+
+------------------------- Exit Success (SU2_CFD) ------------------------
+
+Collecting data...
+Generating '/workspace/SU2/benchmarks/su2_rae2822_meshes/mytmp/nsys-report-244f.qdstrm'
+[1/7] [0%                          ] report1.nsys-rep[1/7] [0%                          ] report1.nsys-rep[1/7] [0%                          ] report1.nsys-rep[1/7] [5%                          ] report1.nsys-rep[1/7] [6%                          ] report1.nsys-rep[1/7] [7%                          ] report1.nsys-rep[1/7] [8%                          ] report1.nsys-rep[1/7] [9%                          ] report1.nsys-rep[1/7] [10%                         ] report1.nsys-rep[1/7] [11%                         ] report1.nsys-rep[1/7] [12%                         ] report1.nsys-rep[1/7] [13%                         ] report1.nsys-rep[1/7] [14%                         ] report1.nsys-rep[1/7] [=15%                        ] report1.nsys-rep[1/7] [=16%                        ] report1.nsys-rep[1/7] [=17%                        ] report1.nsys-rep[1/7] [==18%                       ] report1.nsys-rep[1/7] [==19%                       ] report1.nsys-rep[1/7] [==20%                       ] report1.nsys-rep[1/7] [==21%                       ] report1.nsys-rep[1/7] [===22%                      ] report1.nsys-rep[1/7] [===23%                      ] report1.nsys-rep[1/7] [===24%                      ] report1.nsys-rep[1/7] [====25%                     ] report1.nsys-rep[1/7] [====26%                     ] report1.nsys-rep[1/7] [====27%                     ] report1.nsys-rep[1/7] [====28%                     ] report1.nsys-rep[1/7] [=====29%                    ] report1.nsys-rep[1/7] [=====30%                    ] report1.nsys-rep[1/7] [=====31%                    ] report1.nsys-rep[1/7] [=====32%                    ] report1.nsys-rep[1/7] [======33%                   ] report1.nsys-rep[1/7] [======34%                   ] report1.nsys-rep[1/7] [======35%                   ] report1.nsys-rep[1/7] [=======36%                  ] report1.nsys-rep[1/7] [=======37%                  ] report1.nsys-rep[1/7] [=======38%                  ] report1.nsys-rep[1/7] [=======39%                  ] report1.nsys-rep[1/7] [========40%                 ] report1.nsys-rep[1/7] [========41%                 ] report1.nsys-rep[1/7] [========42%                 ] report1.nsys-rep[1/7] [=========43%                ] report1.nsys-rep[1/7] [=========44%                ] report1.nsys-rep[1/7] [=========45%                ] report1.nsys-rep[1/7] [=========46%                ] report1.nsys-rep[1/7] [==========47%               ] report1.nsys-rep[1/7] [==========48%               ] report1.nsys-rep[1/7] [==========49%               ] report1.nsys-rep[1/7] [========================100%] report1.nsys-rep[1/7] [========================100%] report1.nsys-rep
+[2/7] [0%                          ] report1.sqlite[2/7] [1%                          ] report1.sqlite[2/7] [2%                          ] report1.sqlite[2/7] [3%                          ] report1.sqlite[2/7] [4%                          ] report1.sqlite[2/7] [5%                          ] report1.sqlite[2/7] [6%                          ] report1.sqlite[2/7] [7%                          ] report1.sqlite[2/7] [8%                          ] report1.sqlite[2/7] [9%                          ] report1.sqlite[2/7] [10%                         ] report1.sqlite[2/7] [11%                         ] report1.sqlite[2/7] [12%                         ] report1.sqlite[2/7] [13%                         ] report1.sqlite[2/7] [14%                         ] report1.sqlite[2/7] [=15%                        ] report1.sqlite[2/7] [=16%                        ] report1.sqlite[2/7] [=17%                        ] report1.sqlite[2/7] [==18%                       ] report1.sqlite[2/7] [==19%                       ] report1.sqlite[2/7] [==20%                       ] report1.sqlite[2/7] [==21%                       ] report1.sqlite[2/7] [===22%                      ] report1.sqlite[2/7] [===23%                      ] report1.sqlite[2/7] [===24%                      ] report1.sqlite[2/7] [====25%                     ] report1.sqlite[2/7] [====26%                     ] report1.sqlite[2/7] [====27%                     ] report1.sqlite[2/7] [====28%                     ] report1.sqlite[2/7] [=====29%                    ] report1.sqlite[2/7] [=====30%                    ] report1.sqlite[2/7] [=====31%                    ] report1.sqlite[2/7] [=====32%                    ] report1.sqlite[2/7] [======33%                   ] report1.sqlite[2/7] [======34%                   ] report1.sqlite[2/7] [======35%                   ] report1.sqlite[2/7] [=======36%                  ] report1.sqlite[2/7] [=======37%                  ] report1.sqlite[2/7] [=======38%                  ] report1.sqlite[2/7] [=======39%                  ] report1.sqlite[2/7] [========40%                 ] report1.sqlite[2/7] [========41%                 ] report1.sqlite[2/7] [========42%                 ] report1.sqlite[2/7] [=========43%                ] report1.sqlite[2/7] [=========44%                ] report1.sqlite[2/7] [=========45%                ] report1.sqlite[2/7] [=========46%                ] report1.sqlite[2/7] [==========47%               ] report1.sqlite[2/7] [==========48%               ] report1.sqlite[2/7] [==========49%               ] report1.sqlite[2/7] [===========50%              ] report1.sqlite[2/7] [===========51%              ] report1.sqlite[2/7] [===========52%              ] report1.sqlite[2/7] [===========53%              ] report1.sqlite[2/7] [============54%             ] report1.sqlite[2/7] [============55%             ] report1.sqlite[2/7] [============56%             ] report1.sqlite[2/7] [============57%             ] report1.sqlite[2/7] [=============58%            ] report1.sqlite[2/7] [=============59%            ] report1.sqlite[2/7] [=============60%            ] report1.sqlite[2/7] [==============61%           ] report1.sqlite[2/7] [==============62%           ] report1.sqlite[2/7] [==============63%           ] report1.sqlite[2/7] [==============64%           ] report1.sqlite[2/7] [===============65%          ] report1.sqlite[2/7] [===============66%          ] report1.sqlite[2/7] [===============67%          ] report1.sqlite[2/7] [================68%         ] report1.sqlite[2/7] [================69%         ] report1.sqlite[2/7] [================70%         ] report1.sqlite[2/7] [================71%         ] report1.sqlite[2/7] [=================72%        ] report1.sqlite[2/7] [=================73%        ] report1.sqlite[2/7] [=================74%        ] report1.sqlite[2/7] [==================75%       ] report1.sqlite[2/7] [==================76%       ] report1.sqlite[2/7] [==================77%       ] report1.sqlite[2/7] [==================78%       ] report1.sqlite[2/7] [===================79%      ] report1.sqlite[2/7] [===================80%      ] report1.sqlite[2/7] [===================81%      ] report1.sqlite[2/7] [===================82%      ] report1.sqlite[2/7] [====================83%     ] report1.sqlite[2/7] [====================84%     ] report1.sqlite[2/7] [====================85%     ] report1.sqlite[2/7] [=====================86%    ] report1.sqlite[2/7] [=====================87%    ] report1.sqlite[2/7] [=====================88%    ] report1.sqlite[2/7] [=====================89%    ] report1.sqlite[2/7] [======================90%   ] report1.sqlite[2/7] [======================91%   ] report1.sqlite[2/7] [======================92%   ] report1.sqlite[2/7] [=======================93%  ] report1.sqlite[2/7] [=======================94%  ] report1.sqlite[2/7] [=======================95%  ] report1.sqlite[2/7] [=======================96%  ] report1.sqlite[2/7] [========================97% ] report1.sqlite[2/7] [========================98% ] report1.sqlite[2/7] [========================99% ] report1.sqlite[2/7] [========================100%] report1.sqlite[2/7] [========================100%] report1.sqlite
+[3/7] Executing 'osrt_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)            Name         
+ --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  ----------------------
+     49.0     288987653591       6059     47695602.2     10105470.0         1082  59933906819  1088225072.8  poll                  
+     20.7     122348984847         95   1287884051.0        48633.0         1272  59473007563  8581254280.6  epoll_wait            
+     19.5     115013448490        132    871314003.7    500103655.0    500069605   4000134719  1081809336.4  pthread_cond_timedwait
+     10.6      62364441333          1  62364441333.0  62364441333.0  62364441333  62364441333           0.0  select                
+      0.0        179161394          4     44790348.5     37313788.5       190392    104343425    52772248.4  pthread_join          
+      0.0        175075523      17930         9764.4         9598.0         4519       113196        2711.7  openat                
+      0.0        137161668       1564        87699.3         1834.0         1032     33503241      901814.4  ioctl                 
+      0.0        107454590        179       600305.0       347671.0         3477      9927282     1443282.3  fopen                 
+      0.0         60630694         37      1638667.4        52600.0        12223     44748259     7553502.5  pthread_cond_wait     
+      0.0         58987455      14003         4212.5         2144.0         1162      3404896       45394.6  read                  
+      0.0         58614928      13664         4289.7         2094.0         1042      7929812       97594.4  close                 
+      0.0         49883263       1189        41954.0         3997.0         3757     16859807      570974.5  open                  
+      0.0         17162950        461        37229.8         6192.0         2294      1487419      128951.3  stat                  
+      0.0         15539063        157        98974.9        40066.0        14257       525670       91258.9  pthread_rwlock_wrlock 
+      0.0         15447016        145       106531.1        63280.0        44184      1657913      159791.6  pwrite                
+      0.0         12427314        937        13262.9        14939.0         1042       113436       10850.8  fgets                 
+      0.0         10120183        167        60599.9        74813.0         1112       809580       71776.8  write                 
+      0.0         10010840          1     10010840.0     10010840.0     10010840     10010840           0.0  fork                  
+      0.0          6548175          3      2182725.0       337181.0       247491      5963503     3274556.9  ftruncate             
+      0.0          4961317         25       198452.7        11823.0         8296      3345253      664728.6  mmap64                
+      0.0          4554321         79        57649.6        19537.0         3377       383900       64475.2  mmap                  
+      0.0          4228804        135        31324.5        29957.0         4218       110110       13735.4  pthread_rwlock_rdlock 
+      0.0          4100473         74        55411.8         2620.0         1522      3325685      386014.2  fclose                
+      0.0          2324396        162        14348.1        16486.5         4518        74411       10027.3  connect               
+      0.0          1925887         82        23486.4         1308.0         1002       364493       78992.1  fcntl                 
+      0.0          1624479         10       162447.9        78389.5        31329       946080      276682.8  sem_timedwait         
+      0.0          1477429          9       164158.8       164633.0       157630       170734        4031.1  usleep                
+      0.0          1404441          3       468147.0       366567.0       356588       681286      184651.2  lstat                 
+      0.0          1038607        173         6003.5         4999.0         3848        29075        3434.5  socket                
+      0.0           988056         20        49402.8        19647.0         1302       661538      144322.6  pthread_mutex_lock    
+      0.0           885303          8       110662.9       113080.0        78600       137792       22736.4  pthread_create        
+      0.0           742372          1       742372.0       742372.0       742372       742372           0.0  stat64                
+      0.0           727620         24        30317.5        34069.5         3787        49414       14566.8  writev                
+      0.0           655525         13        50425.0        20629.0         6742       260225       67878.6  munmap                
+      0.0           581028         72         8069.8         7669.5         3236        12514        2339.6  fstatat               
+      0.0           580388         51        11380.2        10500.0         3837        41689        6789.6  open64                
+      0.0           304797        121         2519.0         1273.0         1001        16241        2773.6  fflush                
+      0.0           288478         60         4808.0         4258.0         4007        11091        1758.5  openat64              
+      0.0           197225          4        49306.3        13871.5         6532       162950       75928.2  recv                  
+      0.0           150165          7        21452.1        12213.0         3587        66516       22235.7  shutdown              
+      0.0           149340         50         2986.8         2474.5         1593         8917        1539.8  epoll_ctl             
+      0.0           142278         60         2371.3         2324.0         1773         3256         409.5  fstat64               
+      0.0           138063         38         3633.2         3361.5         1202         6773        1532.1  pthread_cond_broadcast
+      0.0           126237         36         3506.6         1192.0         1001        46418        8182.0  fwrite                
+      0.0           101373          3        33791.0        28875.0        20649        51849       16170.5  send                  
+      0.0            93308         12         7775.7         4854.5         1383        23805        7677.1  fread                 
+      0.0            90772          9        10085.8        12083.0         5350        14818        3619.9  pipe2                 
+      0.0            85973         20         4298.6         3586.5         3447         7885        1506.4  fopen64               
+      0.0            42632          2        21316.0        21316.0        19397        23235        2713.9  shmdt                 
+      0.0            30376          8         3797.0         3691.5         2795         5019        1063.4  statx                 
+      0.0            29025          4         7256.3         7078.5         4689        10179        2252.0  pipe                  
+      0.0            27905          6         4650.8         4388.5         3407         7114        1380.1  bind                  
+      0.0            27433         19         1443.8         1143.0         1012         2976         604.0  sigaction             
+      0.0            26761          1        26761.0        26761.0        26761        26761           0.0  accept                
+      0.0            24317         13         1870.5         1934.0         1002         2875         482.8  fstat                 
+      0.0            22843          2        11421.5        11421.5         9989        12854        2025.9  shmget                
+      0.0            18425          2         9212.5         9212.5         8987         9438         318.9  shmat                 
+      0.0            13216          8         1652.0         1278.0         1042         3907         964.0  fdopen                
+      0.0            12605          6         2100.8         1969.0         1483         3227         625.4  listen                
+      0.0             6334          4         1583.5         1483.5         1103         2264         569.8  dup                   
+      0.0             4648          4         1162.0         1132.0         1102         1282          82.9  shmctl                
+      0.0             1302          1         1302.0         1302.0         1302         1302           0.0  signal                
+
+[4/7] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls  Avg (ns)   Med (ns)   Min (ns)  Max (ns)   StdDev (ns)           Name         
+ --------  ---------------  ---------  ---------  ---------  --------  ---------  -----------  ----------------------
+     47.4      14784540151     445960    33152.2     6543.0      3948    2905035     109977.3  cudaMemcpy            
+     25.8       8062606807     426958    18883.8     5740.0      1152    1712507      58331.6  cudaDeviceSynchronize 
+     12.3       3846117124     748819     5136.2     4830.0      3857     682328       2485.7  cudaLaunchKernel      
+      4.8       1491728557     423087     3525.8     3317.0      2424     586155       2428.7  cudaMalloc            
+      4.6       1442210409     264647     5449.6     3817.0      2956    1431984      10711.7  cudaMemset            
+      4.1       1282040064     423312     3028.6     2795.0      2215    1426112       3650.8  cudaFree              
+      0.5        153819822     748819      205.4      180.0       150     125980        290.2  cuKernelGetName       
+      0.5        152201534        225   676451.3     7855.0      2785  149151499    9942538.0  cudaMallocManaged     
+      0.0          3269418          2  1634709.0  1634709.0    108236    3161182    2158758.8  cuLibraryLoadData     
+      0.0             9388          8     1173.5      946.5       541       3126        831.8  cuLibraryGetKernel    
+      0.0             1873          1     1873.0     1873.0      1873       1873          0.0  cuModuleGetLoadingMode
+
+[5/7] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  --------  --------  --------  --------  -----------  ----------------------------------------------------------------------------------------------------
+     31.9       4574761760     115150   39728.7   17920.0      4767    398779      48221.8  void GPUmultiDot<double>(const T1 *const *, unsigned long, const T1 *const *, unsigned long, unsign…
+     17.9       2563134825      71880   35658.5   16927.0      6720   1319438      39928.2  void BlockLDU_SpMV_kernel<double>(unsigned long, unsigned long, const unsigned long *, const unsign…
+     15.1       2161647047     321861    6716.1    3840.0      2143    917460      30216.8  void LinearCombinationKernel<double, (int)4>(T1 *, WeightedVecs<T1, T2>, int, unsigned long, bool)  
+     13.8       1974635442      77602   25445.7    4704.0      4383   1901318     114908.3  void GPUDotKernel<double>(const T1 *, const T1 *, unsigned long, T1 *)                              
+     12.9       1845677651       7122  259151.6  247917.0       928   1717768     273862.1  void GPUUnaryOperationKernel<double, <unnamed>::OpSetScalar<double>>(T1 *, unsigned long, T2)       
+      5.8        835570705      71880   11624.5   12128.0      2208     28672       3374.2  void GPUMatrixVectorProductKernel<double, double>(T1 *, T2 *, T2 *, unsigned long, unsigned long)   
+      2.6        366456729      77602    4722.3    3936.0      3327     29087       1697.1  void GPUUnaryOperationKernel<double, <unnamed>::OpDivScalar<double>>(T1 *, unsigned long, T2)       
+      0.1         15751756       5722    2752.8    1856.0      1696   1116017      19622.1  void GPUASTInterpreterKernel<double>(T1 *, GPUASTPayload<T1>, unsigned long)                        
+
+[6/7] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count   Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)               Operation              
+ --------  ---------------  ------  --------  --------  --------  --------  -----------  ------------------------------------
+     57.6       3863806400    5722  675254.5  495242.0    178014   2759866     396585.1  [CUDA memcpy Device-to-Device]      
+     15.8       1062139829  247486    4291.7     352.0       287    859508      25850.4  [CUDA memcpy Host-to-Device]        
+     13.1        880211720  284721    3091.5    1856.0      1279    159741       4380.6  [CUDA memcpy Unified Host-to-Device]
+      7.8        521668499  131944    3953.7    1247.0       575    186525       7235.9  [CUDA memcpy Unified Device-to-Host]
+      2.9        197769967  192752    1026.0    1024.0       416    127743       1065.8  [CUDA memcpy Device-to-Host]        
+      2.7        184491166  264647     697.1     352.0       288   1414060      10091.3  [CUDA memset]                       
+
+[7/7] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count   Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)               Operation              
+ ----------  ------  --------  --------  --------  --------  -----------  ------------------------------------
+  11523.998  247486     0.047     0.000     0.000     6.341        0.277  [CUDA memcpy Host-to-Device]        
+   9689.613  264647     0.037     0.000     0.000     6.341        0.095  [CUDA memset]                       
+   5559.599  284721     0.020     0.004     0.004     1.044        0.054  [CUDA memcpy Unified Host-to-Device]
+   5500.830  131944     0.042     0.004     0.004     1.044        0.095  [CUDA memcpy Unified Device-to-Host]
+   2214.679    5722     0.387     0.229     0.069     3.195        0.471  [CUDA memcpy Device-to-Device]      
+      8.912  192752     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy Device-to-Host]        
+
+Generated:
+	/workspace/SU2/benchmarks/su2_rae2822_meshes/report1.nsys-rep
+	/workspace/SU2/benchmarks/su2_rae2822_meshes/report1.sqlite
